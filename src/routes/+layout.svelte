@@ -3,15 +3,20 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import { Navigation } from '@skeletonlabs/skeleton-svelte';
 	import logo from '../images/logo.svg';
-	
 
 	let { children } = $props();
 	let value = $state('home');
 	let menuSelected = $state('1');
 
-	//
 	function selectMenu(event) {
 		menuSelected = event.srcElement.id;
+		expandMenu()
+	}
+
+	let isExpanded = $state(false);
+
+	function expandMenu() {
+		isExpanded = !isExpanded;
 	}
 </script>
 
@@ -32,11 +37,12 @@
 				</a>
 				<div class="flex items-center lg:order-2">
 					<button
+						onclick={expandMenu}
 						data-collapse-toggle="mobile-menu-2"
 						type="button"
 						class="ml-1 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:ring-2 focus:ring-gray-200 focus:outline-none lg:hidden"
 						aria-controls="mobile-menu-2"
-						aria-expanded="false"
+						aria-expanded={isExpanded}
 						><!-- dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 -->
 						<span class="sr-only">Open main menu</span>
 						<svg
@@ -66,7 +72,9 @@
 					</button>
 				</div>
 				<div
-					class="hidden w-full items-center justify-between lg:order-1 lg:flex lg:w-auto"
+					class="{'w-full items-center justify-between lg:order-1 lg:flex lg:w-auto'} {isExpanded
+						? ''
+						: 'hidden'}"
 					id="mobile-menu-2"
 				>
 					<ul class="mt-4 flex flex-col font-medium lg:mt-0 lg:flex-row lg:space-x-8">
