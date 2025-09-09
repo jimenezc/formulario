@@ -1,10 +1,10 @@
 <script>
-	import hero from '../images/hero.png';
+	import hero from '../images/hero.jpeg';
 </script>
 
 <section class="bg-white">
 	<div
-		class="mx-auto grid max-w-screen-xl px-4 pt-20 pb-8 lg:grid-cols-12 lg:gap-8 lg:py-16 lg:pt-28 xl:gap-0"
+		class="mx-auto grid max-w-screen-xl px-4 pb-8 lg:grid-cols-12 lg:gap-8 lg:py-2 lg:pt-8 xl:gap-0"
 	>
 		<div class="mr-auto place-self-center lg:col-span-7">
 			<h1
@@ -19,13 +19,13 @@
 			<div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
 				<a
 					href="/evaluar"
-					class="inline-flex w-full items-center justify-center rounded-lg border border-gray-200 px-5 py-3 text-center text-sm font-medium text-gray-900 hover:bg-purple-700 hover:text-white focus:ring-4 focus:ring-gray-100 sm:w-auto"
+					class="inline-flex w-full items-center justify-center rounded-lg border border-gray-200 px-5 py-3 text-center text-sm font-medium text-gray-900 hover:bg-green-700 hover:text-white focus:ring-4 focus:ring-gray-100 sm:w-auto"
 					>Evaluar
 				</a>
 			</div>
 		</div>
 		<div class="hidden lg:col-span-5 lg:mt-0 lg:flex">
-			<img src={hero} alt="hero" />
+			<img class="rounded-xl" src={hero} alt="hero" />
 		</div>
 	</div>
 </section>

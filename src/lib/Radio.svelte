@@ -9,7 +9,7 @@
 			<div>
 				<label>
 					<input
-						class="radio bg-white checked:bg-purple-700 hover:bg-purple-500 checked:hover:bg-purple-700 focus:bg-purple-500 checked:focus:bg-purple-700"
+						class="radio bg-white checked:bg-blue-700 hover:bg-blue-500 checked:hover:bg-blue-700 focus:bg-blue-500 checked:focus:bg-blue-700"
 						type="radio"
 						name={question.id}
 						value={option.value}

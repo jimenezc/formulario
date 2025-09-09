@@ -5,6 +5,9 @@
 	import { getAIRecomendations } from './aiRecomendations';
 	import SvelteMarkdown from 'svelte-markdown';
 	import { onMount } from 'svelte';
+	import evaluarBGL from '../../images/evaluar-l.png';
+	import evaluarBGR from '../../images/evaluar-r.png';
+
 	let html2pdf;
 
 	onMount(async () => {
@@ -93,75 +96,81 @@
 	}
 </script>
 
-{#if formPage == 0}
-	<Info bind:enterpriseInfo {nextPage} />
-{:else if formPage == 1}
-	<EvaluationForm
-		questions={dimension1.questions}
-		dimensionTitle={dimension1.title}
-		bind:aiInputText={aiInputText.dimension1}
-		bind:level={average.dimension1}
-		buttonA={{ text: 'Anterior', buttonFunc: previewPage }}
-		buttonB={{ text: 'Siguiente', buttonFunc: nextPage }}
-	/>
-{:else if formPage == 2}
-	<EvaluationForm
-		questions={dimension2.questions}
-		dimensionTitle={dimension2.title}
-		bind:aiInputText={aiInputText.dimension2}
-		bind:level={average.dimension2}
-		buttonA={{ text: 'Anterior', buttonFunc: previewPage }}
-		buttonB={{ text: 'Siguiente', buttonFunc: nextPage }}
-	/>
-{:else if formPage == 3}
-	<EvaluationForm
-		questions={dimension3.questions}
-		dimensionTitle={dimension3.title}
-		bind:aiInputText={aiInputText.dimension3}
-		bind:level={average.dimension3}
-		buttonA={{ text: 'Anterior', buttonFunc: previewPage }}
-		buttonB={{ text: 'Siguiente', buttonFunc: nextPage }}
-	/>
-{:else if formPage == 4}
-	<EvaluationForm
-		questions={dimension4.questions}
-		dimensionTitle={dimension4.title}
-		bind:aiInputText={aiInputText.dimension4}
-		bind:level={average.dimension4}
-		buttonA={{ text: 'Anterior', buttonFunc: previewPage }}
-		buttonB={{ text: 'Siguiente', buttonFunc: nextPage }}
-	/>
-{:else if formPage == 5}
-	<EvaluationForm
-		questions={dimension5.questions}
-		dimensionTitle={dimension5.title}
-		bind:aiInputText={aiInputText.dimension5}
-		bind:level={average.dimension5}
-		buttonA={{ text: 'Anterior', buttonFunc: previewPage }}
-		buttonB={{ text: 'Enviar', buttonFunc: sendForm }}
-	/>
-{:else if formPage == 6}
-	{#if aiResult}
-		<div class="h-full w-full">
-			<div class="mx-auto mt-12 w-full max-w-md space-y-4">
-				<div id="pdf-download" class="my-2 text-black">
-					<div>
-						<h3 class="font-semibold">{enterpriseInfo.name}</h3>
-						<h4 class="font-medium">Resultados por dimensión</h4>
-						<h4>{dimension1.title.slice(0, -1)}: {average.dimension1}%</h4>
-						<h4>{dimension2.title.slice(0, -1)}: {average.dimension2}%</h4>
-						<h4>{dimension3.title.slice(0, -1)}: {average.dimension3}%</h4>
-						<h4>{dimension4.title.slice(0, -1)}: {average.dimension4}%</h4>
-						<h4>{dimension5.title.slice(0, -1)}: {average.dimension5}%</h4>
+<div class="relative static sticky grid grid-cols-3">
+	<div class="rounded-tl-lg rounded-bl-lg" style={`background-image: url("${evaluarBGL}");`}></div>
+	<div class="">
+		{#if formPage == 0}
+			<Info bind:enterpriseInfo {nextPage} />
+		{:else if formPage == 1}
+			<EvaluationForm
+				questions={dimension1.questions}
+				dimensionTitle={dimension1.title}
+				bind:aiInputText={aiInputText.dimension1}
+				bind:level={average.dimension1}
+				buttonA={{ text: 'Anterior', buttonFunc: previewPage }}
+				buttonB={{ text: 'Siguiente', buttonFunc: nextPage }}
+			/>
+		{:else if formPage == 2}
+			<EvaluationForm
+				questions={dimension2.questions}
+				dimensionTitle={dimension2.title}
+				bind:aiInputText={aiInputText.dimension2}
+				bind:level={average.dimension2}
+				buttonA={{ text: 'Anterior', buttonFunc: previewPage }}
+				buttonB={{ text: 'Siguiente', buttonFunc: nextPage }}
+			/>
+		{:else if formPage == 3}
+			<EvaluationForm
+				questions={dimension3.questions}
+				dimensionTitle={dimension3.title}
+				bind:aiInputText={aiInputText.dimension3}
+				bind:level={average.dimension3}
+				buttonA={{ text: 'Anterior', buttonFunc: previewPage }}
+				buttonB={{ text: 'Siguiente', buttonFunc: nextPage }}
+			/>
+		{:else if formPage == 4}
+			<EvaluationForm
+				questions={dimension4.questions}
+				dimensionTitle={dimension4.title}
+				bind:aiInputText={aiInputText.dimension4}
+				bind:level={average.dimension4}
+				buttonA={{ text: 'Anterior', buttonFunc: previewPage }}
+				buttonB={{ text: 'Siguiente', buttonFunc: nextPage }}
+			/>
+		{:else if formPage == 5}
+			<EvaluationForm
+				questions={dimension5.questions}
+				dimensionTitle={dimension5.title}
+				bind:aiInputText={aiInputText.dimension5}
+				bind:level={average.dimension5}
+				buttonA={{ text: 'Anterior', buttonFunc: previewPage }}
+				buttonB={{ text: 'Enviar', buttonFunc: sendForm }}
+			/>
+		{:else if formPage == 6}
+			{#if aiResult}
+				<div class="h-full w-full">
+					<div class="mx-auto w-full max-w-md space-y-4 p-4">
+						<div id="pdf-download" class="my-2 text-black">
+							<div>
+								<h3 class="font-semibold">{enterpriseInfo.name}</h3>
+								<h4 class="font-medium">Resultados por dimensión</h4>
+								<h4>{dimension1.title.slice(0, -1)}: {average.dimension1}%</h4>
+								<h4>{dimension2.title.slice(0, -1)}: {average.dimension2}%</h4>
+								<h4>{dimension3.title.slice(0, -1)}: {average.dimension3}%</h4>
+								<h4>{dimension4.title.slice(0, -1)}: {average.dimension4}%</h4>
+								<h4>{dimension5.title.slice(0, -1)}: {average.dimension5}%</h4>
+							</div>
+							<p class="mt-2 font-medium">Recomendaciones</p>
+							<SvelteMarkdown source={aiResult} />
+						</div>
+						<button
+							class="inline-flex w-full items-center justify-center rounded-lg border border-gray-200 px-5 py-3 text-center text-sm font-medium text-gray-900 hover:bg-blue-700 hover:text-white focus:ring-4 focus:ring-gray-100 sm:w-auto"
+							onclick={downloadPDF}>Descargar PDF</button
+						>
 					</div>
-					<p class="mt-2 font-medium">Recomendaciones</p>
-					<SvelteMarkdown source={aiResult} />
 				</div>
-				<button
-					class="inline-flex w-full items-center justify-center rounded-lg border border-gray-200 px-5 py-3 text-center text-sm font-medium text-gray-900 hover:bg-purple-700 hover:text-white focus:ring-4 focus:ring-gray-100 sm:w-auto"
-					onclick={downloadPDF}>Descargar PDF</button
-				>
-			</div>
-		</div>
-	{/if}
-{/if}
+			{/if}
+		{/if}
+	</div>
+	<div class="rounded-tr-lg rounded-br-lg" style={`background-image: url("${evaluarBGR}");`}></div>
+</div>

@@ -3,13 +3,13 @@
 	let { enterpriseInfo, nextPage } = $props();
 </script>
 
-<div class="mx-auto h-screen w-full max-w-md space-y-4">
-	<div class="py-2">
+<div class="mx-auto max-w-md space-y-4 bg-white">
+	<div class="px-4 py-2">
 		<h2 class="text-lg font-bold sm:truncate sm:tracking-tight">
 			Sección 1: Información general de la empresa
 		</h2>
 	</div>
-	<div class="text-left">
+	<div class="px-4 text-left">
 		<GroupInput labelText="Nombre de la empresa" bind:inputData={enterpriseInfo.name} />
 		<GroupInput
 			labelText="Tamaño (número de empleados)"
@@ -30,7 +30,7 @@
 		/>
 		<button
 			type="button"
-			class="rounded bg-purple-500 px-4 py-2 text-lg font-bold text-white hover:bg-purple-700"
+			class="rounded bg-blue-500 px-4 py-2 text-lg font-bold text-white hover:bg-blue-700"
 			onclick={nextPage}
 		>
 			<span>Siguiente</span>

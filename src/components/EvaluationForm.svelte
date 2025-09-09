@@ -38,7 +38,7 @@
 	}
 </script>
 
-<div class="h-screen w-full">
+<div class="h-screen w-full p-4">
 	<slot></slot>
 	<form class="mx-auto h-screen w-full max-w-md space-y-4">
 		<h2 class="text-lg">{dimensionTitle}</h2>
@@ -49,14 +49,14 @@
 		</label>
 		<button
 			type="button"
-			class="rounded bg-purple-500 px-4 py-2 text-lg font-bold text-white hover:bg-purple-700"
+			class="rounded bg-blue-500 px-4 py-2 text-lg font-bold text-white hover:bg-blue-700"
 			onclick={buttonA.buttonFunc}
 		>
 			<span>{buttonA.text}</span>
 		</button>
 		<button
 			type="button"
-			class="rounded bg-purple-500 px-4 py-2 text-lg font-bold text-white hover:bg-purple-700"
+			class="rounded bg-blue-500 px-4 py-2 text-lg font-bold text-white hover:bg-blue-700"
 			onclick={makeAIInput}
 		>
 			<span>{buttonB.text}</span>

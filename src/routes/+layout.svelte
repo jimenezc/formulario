@@ -2,7 +2,7 @@
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { Navigation } from '@skeletonlabs/skeleton-svelte';
-	import logo from '../images/logo.svg';
+	import logo from '../images/rse.svg';
 
 	let { children } = $props();
 	let value = $state('home');
@@ -10,7 +10,7 @@
 
 	function selectMenu(event) {
 		menuSelected = event.srcElement.id;
-		expandMenu()
+		expandMenu();
 	}
 
 	let isExpanded = $state(false);
@@ -32,8 +32,8 @@
 			<div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between px-4">
 				<a href="/" class="flex items-center">
 					<img src={logo} class="mr-3 h-6 sm:h-9" alt="Landwind Logo" />
-					<span class="self-center text-xl font-semibold whitespace-nowrap">RSE</span
-					><!-- dark:text-white -->
+					<span class="self-center text-xl font-semibold whitespace-nowrap"
+					></span><!-- dark:text-white -->
 				</a>
 				<div class="flex items-center lg:order-2">
 					<button
@@ -83,9 +83,9 @@
 								id="1"
 								onclick={selectMenu}
 								href="/"
-								class="{'block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-purple-700'} {menuSelected ==
+								class="{'block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-green-700'} {menuSelected ==
 								'1'
-									? 'text-purple-700'
+									? 'text-green-700'
 									: 'text-gray-700'}"
 								aria-current="page">Inicio</a
 							><!-- dark:text-white -->
@@ -95,9 +95,9 @@
 								id="2"
 								onclick={selectMenu}
 								href="/evaluar"
-								class="{'block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-purple-700'} {menuSelected ==
+								class="{'block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-green-700'} {menuSelected ==
 								'2'
-									? 'text-purple-700'
+									? 'text-green-700'
 									: 'text-gray-700'}">Evaluar</a
 							><!-- dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent lg:dark:hover:text-white -->
 						</li>
@@ -105,11 +105,11 @@
 							<a
 								id="3"
 								onclick={selectMenu}
-								href="/informacion"
-								class="{'block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-purple-700'} {menuSelected ==
+								href="/nosotros"
+								class="{'block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-green-700'} {menuSelected ==
 								'3'
-									? 'text-purple-700'
-									: 'text-gray-700'}">Información</a
+									? 'text-green-700'
+									: 'text-gray-700'}">Nosotros</a
 							><!-- dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent lg:dark:hover:text-white -->
 						</li>
 					</ul>
@@ -118,7 +118,7 @@
 		</nav>
 	</header>
 	<!-- Main -->
-	<main class="h-full w-full space-y-4 bg-white p-4">
+	<main class="mt-12 h-full w-full space-y-4 bg-white">
 		{@render children()}
 		<!-- <p class="h-[512px] bg-white p-4">Paragraph 2</p>
 		<p class="h-[512px] bg-white p-4">Paragraph 3</p> -->
